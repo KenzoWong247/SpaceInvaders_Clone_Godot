@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0vs8ccqu4i64"]
+
+[ext_resource type="Script" uid="uid://bcpqmkxqmfpei" path="res://Scripts/bonus_ship.gd" id="1_g8e40"]
+[ext_resource type="Texture2D" uid="uid://b5oyv1n0ksmsn" path="res://Assets/space_invaders.png" id="2_vcgev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8e40"]
+size = Vector2(192, 64)
+
+[node name="Bonus Ship" type="Node2D"]
+script = ExtResource("1_g8e40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vcgev")
+region_enabled = true
+region_rect = Rect2(38, 320, 194, 85)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_g8e40")
+
+[node name="Despawn Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Despawn Timer" to="." method="_on_despawn_timer_timeout"]

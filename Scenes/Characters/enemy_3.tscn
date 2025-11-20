@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3a6k27sbgcci"]
+
+[ext_resource type="PackedScene" uid="uid://clx8t3brxpp0k" path="res://Scenes/Characters/enemy.tscn" id="1_2k5vt"]
+[ext_resource type="Texture2D" uid="uid://b5oyv1n0ksmsn" path="res://Assets/space_invaders.png" id="2_h121c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k33x4"]
+atlas = ExtResource("2_h121c")
+region = Rect2(33, 12, 100, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkoca"]
+atlas = ExtResource("2_h121c")
+region = Rect2(133, 12, 100, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srvwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k33x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkoca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sstu4"]
+size = Vector2(64, 62)
+
+[node name="Enemy1" instance=ExtResource("1_2k5vt")]
+enemy_type = 3
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_srvwt")
+autoplay = "default"
+frame_progress = 0.817897
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_sstu4")

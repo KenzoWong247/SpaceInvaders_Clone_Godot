@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6v61u2qqidqt"]
+
+[ext_resource type="Script" uid="uid://vcj46030ngv8" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://dh0g0dj3a6s3d" path="res://Scripts/normal_camera.gd" id="3_8gbba"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
+
+[node name="Games Folder" type="Node2D" parent="."]
+
+[node name="Normal Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("3_8gbba")

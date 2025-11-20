@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://clx8t3brxpp0k"]
+
+[ext_resource type="Script" uid="uid://nmvqmoyot4po" path="res://Scripts/enemy.gd" id="1_lsx3x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsx3x"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Enemy" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_lsx3x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lsx3x")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 400)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

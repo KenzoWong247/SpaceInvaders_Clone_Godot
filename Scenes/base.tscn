@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqepbfjpwjy7e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2nhcr"]
+load_path = "res://.godot/imported/space_invaders.png-2294f3fcda631ebc7e552faf900e7ce7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31hd7"]
+atlas = SubResource("CompressedTexture2D_2nhcr")
+
+[node name="Base" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_31hd7")
+region_enabled = true
+region_rect = Rect2(151, 14, 65, 63)
